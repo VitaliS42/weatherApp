@@ -1,0 +1,77 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  font-weight: normal;
+  text-decoration: none;
+}
+
+body {
+  min-height: 100vh;
+  background:
+    linear-gradient(116.21deg, #052652 -3.25%, #2D9CDB 107.37%);
+  font-family:
+    'Geologica',
+    sans-serif;
+}
+
+@font-face {
+  font-family: 'Geologica';
+  src: url('fonts/Geologica-Variable.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+h1,h2,h3,h4,h5,h6,p,span {
+  color: #FFFFFF;
+}
+span {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 120%;
+}
+.span-bold {
+  font-weight: 500;
+}
+.span-extraBold {
+  font-weight: 700;
+}
+
+h3 {
+  font-weight: 600;
+  font-size: 48px;
+  line-height: 130%;
+}
+
+h4 {
+  font-weight: 600;
+  font-size: 36px;
+  line-height: 130%;
+}
+
+.p1 {
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 120%;
+}
+
+.p2 {
+  font-weight: 500;
+  font-size: 26px;
+  line-height: 120%;
+}
+
+.p3 {
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 120%;
+}
+
+.p4 {
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 120%;
+}
+
+

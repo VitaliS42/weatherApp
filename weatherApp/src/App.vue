@@ -6,28 +6,22 @@ import CityHeader from "@/components/CityHeader.vue";
 
 const options = ref([
   {
-    name: 'Казань',
-    value: 1,
+    name: 'Казань', value: 1,
   },
   {
-    name: 'Краснодар',
-    value: 2,
+    name: 'Краснодар', value: 2,
   },
   {
-    name: 'Уфа',
-    value: 3,
+    name: 'Уфа', value: 3,
   },
   {
-    name: 'Новосибирск',
-    value: 4,
+    name: 'Новосибирск', value: 4,
   },
   {
-    name: 'Красноярск',
-    value: 5,
+    name: 'Красноярск', value: 5,
   },
   {
-    name: 'Москва',
-    value: 6,
+    name: 'Москва', value: 6,
   }
 ])
 

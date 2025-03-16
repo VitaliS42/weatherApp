@@ -1,15 +1,20 @@
 <script setup lang="ts">
+  import {computed} from "vue";
+
   const props = defineProps({
-    city: {
-      type: String,
-      required: true
+    modelValue: {
+      default: null,
     }
+  })
+
+  const selectedName = computed(() => {
+    return props.modelValue ? props.modelValue.name : null;
   })
 </script>
 
 <template>
   <header class="cityHeader">
-    <h4>Погода в городе {{ props.city }}</h4>
+    <h4>Погода в городе {{ selectedName }}</h4>
     <p class="p1">понедельник, 25 августа</p>
   </header>
 </template>

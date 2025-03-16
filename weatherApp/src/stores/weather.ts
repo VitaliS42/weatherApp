@@ -3,8 +3,7 @@ import { defineStore } from 'pinia'
 
 export const useWeatherStore = defineStore('weather', () => {
   const weatherInfo = ref()
-
-  const selectedOption = ref(null)
+  const selectedCity = ref()
 
   const cities = ref([
     {name: 'Казань', latitude: 55.7887, longitude: 49.1221,},
@@ -20,29 +19,31 @@ export const useWeatherStore = defineStore('weather', () => {
 
   const url = `https://api.open-meteo.com/v1/forecast?latitude=${latString}&longitude=${longString}&hourly=temperature_2m,relative_humidity_2m,wind_speed_10m,wind_speed_80m,weather_code&current=temperature_2m,weather_code,wind_speed_10m,relative_humidity_2m&forecast_days=1&forecast_hours=12`;
 
-  fetch(url)
-    .then(response => {
-      if (!response.ok) {
-        throw new Error('Ошибка сети: ' + response.status);
-      }
-      return response.json();
-    })
-    .then(data => {
-      weatherInfo.value = cities.value.map((item, index) => {
-        return {
-          name: item.name,
-          current: data[index].current,
-          hourly: data[index].hourly
-        };
+  const fetchWeatherInfo = async () => {
+    await fetch(url)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Ошибка сети: ' + response.status);
+        }
+        return response.json();
+      })
+      .then(data => {
+        weatherInfo.value = cities.value.map((item, index) => {
+          return {
+            name: item.name,
+            current: data[index].current,
+            hourly: data[index].hourly
+          };
+        });
+
+        selectedCity.value = weatherInfo.value[0];
+
+        return weatherInfo;
+      })
+      .catch(error => {
+        console.error('Ошибка:', error);
       });
+  }
 
-      selectedOption.value = weatherInfo.value[0];
-
-      return weatherInfo;
-    })
-    .catch(error => {
-      console.error('Ошибка:', error);
-    });
-
-  return { cities, weatherInfo, selectedOption }
+  return { weatherInfo, selectedCity, fetchWeatherInfo }
 })

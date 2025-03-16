@@ -1,15 +1,31 @@
 <script setup lang="ts">
 import {RouterLink, RouterView} from 'vue-router'
 import DropDown from "@/components/DropDown.vue";
-import {ref} from "vue";
+import {onMounted, ref, watch} from "vue";
 import CityHeader from "@/components/CityHeader.vue";
 import {useWeatherStore} from "@/stores/weather.ts";
 
 const forecast = useWeatherStore()
-// todo: убрать после отладки
-console.log(forecast.weatherInfo)
 
-const parentSelectedOption = ref()
+const weatherInfo = ref()
+
+const selectedOption = ref(null)
+
+onMounted(async () => {
+  await forecast.fetchWeatherInfo()
+  weatherInfo.value = forecast.weatherInfo
+  selectedOption.value = weatherInfo.value[0]
+})
+
+watch(selectedOption, (currentValue, oldValue) => {
+  console.log(currentValue)
+    forecast.selectedCity.value=currentValue;
+    console.log("tuturu " + forecast.weatherInfo[1].name)
+    console.log("tututu " + forecast.selectedCity.name)
+})
+
+
+
 
 </script>
 
@@ -20,9 +36,9 @@ const parentSelectedOption = ref()
         <RouterLink to="/" class="p4">Главная</RouterLink>
         <RouterLink to="/weekly" class="p4">Погода за неделю</RouterLink>
       </nav>
-      <DropDown :options="forecast.weatherInfo" v-model="parentSelectedOption"/>
+      <DropDown :options="weatherInfo" v-model="selectedOption"/>
     </div>
-    <CityHeader :city="parentSelectedOption?.name"/>
+    <CityHeader v-model="selectedOption"/>
   </header>
   <RouterView />
 </template>

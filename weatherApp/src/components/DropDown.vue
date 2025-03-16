@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import {computed, onBeforeUnmount, onMounted, ref} from "vue";
+import {computed, onBeforeUnmount, onMounted, type PropType, ref} from "vue";
 import IconArrow from "@/components/icons/IconArrow.vue";
-import {useWeatherStore} from "@/stores/weather.ts";
+import type {SelectedCity} from "@/types/SelectedCity.ts";
 
   const props = defineProps({
     options: {
@@ -9,23 +9,20 @@ import {useWeatherStore} from "@/stores/weather.ts";
       required: true
     },
     modelValue: {
-      default: null
+      type: Object as PropType<SelectedCity | null>, // Укажите тип здесь
+      default: null,
     }
   })
 
   const dropDown = ref(null)
-
   const emit = defineEmits(['update:modelValue'])
-
-  const selectedOption = ref(props.options[0])
   const isDropDownVisible = ref(false)
 
-  const mappedSelectedOption = computed( () => {
-    return (selectedOption.value?.name || selectedOption.value)
+  const selectedName = computed(() => {
+    return props.modelValue ? props.modelValue.name : null;
   })
 
   const toggleOptionSelect = (option) => {
-    selectedOption.value = option;
     emit('update:modelValue', option)
     isDropDownVisible.value = false
   }
@@ -38,7 +35,6 @@ import {useWeatherStore} from "@/stores/weather.ts";
 
   onMounted( ()=> {
     window.addEventListener('click', closeDropDown)
-    emit('update:modelValue', props.options[0])
   })
   onBeforeUnmount( ()=> {
     window.removeEventListener('click', closeDropDown)
@@ -49,7 +45,7 @@ import {useWeatherStore} from "@/stores/weather.ts";
 <template>
   <div class="dropdown-wrapper" ref="dropDown">
     <div class="dropdown-selected-option" @click = "isDropDownVisible = !isDropDownVisible">
-      {{ mappedSelectedOption }}
+      {{ selectedName }}
       <div class="dropdown-icon" :class="{ active: isDropDownVisible, }"><IconArrow/></div>
     </div>
     <div

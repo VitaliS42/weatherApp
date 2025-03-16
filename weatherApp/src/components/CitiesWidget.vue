@@ -22,7 +22,7 @@ import IconQuestion from "@/components/icons/IconQuestion.vue";
 
 <style scoped>
   .citiesWidget {
-    margin-bottom: 66px;
+
   }
   .citiesWidget header {
     display: flex;
@@ -46,7 +46,9 @@ import IconQuestion from "@/components/icons/IconQuestion.vue";
     cursor: pointer;
   }
   .citiesWidget__gallery {
+    padding-bottom: 66px;
     display: flex;
+    overflow-x: auto;
     gap: 37px;
   }
 </style>

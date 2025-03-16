@@ -1,6 +1,17 @@
 <script setup lang="ts">
-import WeatherCloudySmall from "@/components/icons/WeatherCloudySmall.vue";
-import TimeSlot from "@/components/TimeSlot.vue";
+  import WeatherCloudySmall from "@/components/icons/WeatherCloudySmall.vue";
+  import TimeSlot from "@/components/TimeSlot.vue";
+
+  const props = defineProps({
+    dayWeather: {
+      type: Option,
+      required: true
+    },
+    modelValue: {
+      default: null
+    }
+  })
+
 </script>
 
 <template>
@@ -36,6 +47,7 @@ import TimeSlot from "@/components/TimeSlot.vue";
   .dayCard__flex {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
   }
   .dayCard__summary {
     display: flex;

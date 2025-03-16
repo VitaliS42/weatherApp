@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import {computed, onBeforeUnmount, onMounted, ref} from "vue";
 import IconArrow from "@/components/icons/IconArrow.vue";
+import {useWeatherStore} from "@/stores/weather.ts";
 
   const props = defineProps({
     options: {
@@ -16,8 +17,7 @@ import IconArrow from "@/components/icons/IconArrow.vue";
 
   const emit = defineEmits(['update:modelValue'])
 
-  // const selectedOption = ref(null)
-  const selectedOption = ref(props.options[0].name)
+  const selectedOption = ref(props.options[0])
   const isDropDownVisible = ref(false)
 
   const mappedSelectedOption = computed( () => {

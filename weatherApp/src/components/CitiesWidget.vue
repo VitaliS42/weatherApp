@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import CityCard from "@/components/CityCard.vue";
+import CitiesWidgetCard from "@/components/CitiesWidgetCard.vue";
 import IconQuestion from "@/components/icons/IconQuestion.vue";
 </script>
 
@@ -11,18 +11,18 @@ import IconQuestion from "@/components/icons/IconQuestion.vue";
     </header>
 
     <section class="citiesWidget__gallery">
-      <CityCard/>
-      <CityCard/>
-      <CityCard/>
-      <CityCard/>
-      <CityCard/>
+      <CitiesWidgetCard/>
+      <CitiesWidgetCard/>
+      <CitiesWidgetCard/>
+      <CitiesWidgetCard/>
+      <CitiesWidgetCard/>
     </section>
   </article>
 </template>
 
 <style scoped>
   .citiesWidget {
-    margin-bottom: 66px;
+
   }
   .citiesWidget header {
     display: flex;
@@ -48,5 +48,7 @@ import IconQuestion from "@/components/icons/IconQuestion.vue";
   .citiesWidget__gallery {
     display: flex;
     gap: 37px;
+    overflow-x: auto;
+    margin-bottom: 66px;
   }
 </style>

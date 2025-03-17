@@ -3,17 +3,15 @@
 *::after {
   box-sizing: border-box;
   margin: 0;
+  padding: 0;
   font-weight: normal;
   text-decoration: none;
 }
 
 body {
   min-height: 100vh;
-  background:
-    linear-gradient(116.21deg, #052652 -3.25%, #2D9CDB 107.37%);
-  font-family:
-    'Geologica',
-    sans-serif;
+  background: linear-gradient(116.21deg, #052652 -3.25%, #2D9CDB 107.37%);
+  font-family: 'Geologica', sans-serif;
 }
 
 @font-face {
@@ -38,40 +36,47 @@ span {
   font-weight: 700;
 }
 
-h3 {
+h3 h4 {
   font-weight: 600;
-  font-size: 48px;
   line-height: 130%;
+}
+h3 {
+  font-size: 48px;
 }
 
 h4 {
-  font-weight: 600;
   font-size: 36px;
-  line-height: 130%;
 }
 
+.p1 .p2 .p3 .p4{
+  font-weight: 500;
+  line-height: 120%;
+}
 .p1 {
-  font-weight: 500;
-  font-size: 30px;
-  line-height: 120%;
-}
-
-.p2 {
-  font-weight: 500;
   font-size: 26px;
-  line-height: 120%;
 }
-
-.p3 {
-  font-weight: 500;
-  font-size: 24px;
-  line-height: 120%;
-}
-
-.p4 {
-  font-weight: 500;
+.p2 {
   font-size: 22px;
-  line-height: 120%;
+}
+.p3 {
+  font-size: 20px;
+}
+.p4 {
+  font-size: 18px;
+}
+@media (min-width: 768px) {
+  .p1 {
+    font-size: 30px;
+  }
+  .p2 {
+    font-size: 26px;
+  }
+  .p3 {
+    font-size: 24px;
+  }
+  .p4 {
+    font-size: 22px;
+  }
 }
 
 

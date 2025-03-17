@@ -1,11 +1,11 @@
 <template>
   <main>
-    <WeekWeatherCard/>
+    <WeekWidget/>
     <CitiesWidget/>
   </main>
 </template>
 
 <script setup lang="ts">
-import WeekWeatherCard from "@/components/WeekCard.vue";
+import WeekWidget from "@/components/WeekWidget.vue";
 import CitiesWidget from "@/components/CitiesWidget.vue";
 </script>

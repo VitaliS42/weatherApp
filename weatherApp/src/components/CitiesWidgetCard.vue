@@ -3,7 +3,7 @@ import WeatherCloudySmall from "@/components/icons/WeatherCloudySmall.vue";
 </script>
 
 <template>
-  <section class="cityCard">
+  <section class="citiesWidgetCard">
     <p class="p2">Краснодар</p>
     <span>Солнечно</span>
     <WeatherCloudySmall/>
@@ -13,7 +13,7 @@ import WeatherCloudySmall from "@/components/icons/WeatherCloudySmall.vue";
 </template>
 
 <style scoped>
-  .cityCard {
+  .citiesWidgetCard {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -26,7 +26,7 @@ import WeatherCloudySmall from "@/components/icons/WeatherCloudySmall.vue";
     border: 1px solid;
     border-image-source: linear-gradient(144.45deg, rgba(255, 255, 255, 0.4) -14.51%, rgba(255, 255, 255, 0) 117.67%);
   }
-  .cityCard p {
+  .citiesWidgetCard p {
     margin-bottom: -8px;
   }
 </style>

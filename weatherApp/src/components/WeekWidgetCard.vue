@@ -3,7 +3,7 @@ import WeatherRainySmall from "@/components/icons/WeatherRainySmall.vue";
 </script>
 
 <template>
-  <section class="weekDayCard">
+  <section class="weekWidgetCard">
     <span>Вторник</span>
     <WeatherRainySmall/>
     <span class="span-bold">35<span class="span-extraBold">°</span></span>
@@ -11,7 +11,7 @@ import WeatherRainySmall from "@/components/icons/WeatherRainySmall.vue";
 </template>
 
 <style scoped>
-  .weekDayCard {
+  .weekWidgetCard {
     display: flex;
     flex-direction: column;
     align-items: center;

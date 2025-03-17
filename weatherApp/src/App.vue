@@ -2,27 +2,14 @@
 import { RouterLink, RouterView } from 'vue-router'
 import DropDown from "@/components/DropDown.vue";
 import {ref} from "vue";
-import CityHeader from "@/components/CityHeader.vue";
 
 const options = ref([
-  {
-    name: 'Казань', value: 1,
-  },
-  {
-    name: 'Краснодар', value: 2,
-  },
-  {
-    name: 'Уфа', value: 3,
-  },
-  {
-    name: 'Новосибирск', value: 4,
-  },
-  {
-    name: 'Красноярск', value: 5,
-  },
-  {
-    name: 'Москва', value: 6,
-  }
+  {name: 'Казань', value: 1,},
+  {name: 'Краснодар', value: 2,},
+  {name: 'Уфа', value: 3,},
+  {name: 'Новосибирск', value: 4,},
+  {name: 'Красноярск', value: 5,},
+  {name: 'Москва', value: 6,}
 ])
 
 const parentSelectedOption = ref(options[0])
@@ -38,20 +25,24 @@ const parentSelectedOption = ref(options[0])
       </nav>
       <DropDown :options="options" v-model="parentSelectedOption"/>
     </div>
-    <CityHeader :city="parentSelectedOption?.name"/>
+    <h4>Погода в городе {{ parentSelectedOption?.name }}</h4>
+    <p class="p1">понедельник, 25 августа</p>
   </header>
   <RouterView />
 </template>
 
 <style scoped>
 header {
-  margin-bottom: 56px;
+  margin-bottom: 48px;
   margin-top: 39px;
 }
 .header__flex {
+  gap: 20px;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 56px;
 }
 nav a.router-link-exact-active {
   color: #FFFFFF;
@@ -68,5 +59,11 @@ nav a:first-of-type {
 }
 nav a:last-of-type {
   border-radius: 0 8px 8px 0;
+}
+header h4 {
+  margin-bottom: 12px;
+}
+header p{
+  color: #E9E9F399;
 }
 </style>

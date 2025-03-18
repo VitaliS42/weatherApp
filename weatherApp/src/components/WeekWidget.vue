@@ -16,9 +16,9 @@ import WeekWidgetCard from "@/components/WeekWidgetCard.vue";
 
 <style scoped>
   .weekWidget{
-    padding-bottom: 56px;
     display: flex;
     gap: 20px;
     overflow-x: auto;
+    padding: 0 20px 56px 20px;
   }
 </style>

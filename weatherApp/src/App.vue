@@ -35,6 +35,7 @@ const parentSelectedOption = ref(options[0])
 header {
   margin-bottom: 48px;
   margin-top: 39px;
+  padding: 0 20px;
 }
 .header__flex {
   gap: 20px;

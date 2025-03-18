@@ -22,12 +22,12 @@ import IconQuestion from "@/components/icons/IconQuestion.vue";
 
 <style scoped>
   .citiesWidget {
-
   }
   .citiesWidget header {
     display: flex;
     align-items: center;
     margin-bottom: 32px;
+    padding: 0 20px;
   }
   button{
     margin-left: 16px;
@@ -50,5 +50,6 @@ import IconQuestion from "@/components/icons/IconQuestion.vue";
     gap: 37px;
     overflow-x: auto;
     margin-bottom: 66px;
+    padding: 0 20px;
   }
 </style>

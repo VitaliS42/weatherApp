@@ -29,7 +29,7 @@ export const useForecastStore = defineStore('forecast', () => {
 
   // получаем ответ API
   async function getApiWeather() {
-    apiWeather.value = apiResponse();
+    apiWeather.value = apiResponse(cities.value);
   }
   // меняем значение cityWeather, когда выбран город
   function setCityWeather(chosenCity) {

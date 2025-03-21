@@ -16,10 +16,6 @@ const cityList = ([
 ])
 forecast.setCities(cityList);
 
-
-
-
-
 const options = ref([
   {name: 'Казань', value: 1,},
   {name: 'Краснодар', value: 2,},

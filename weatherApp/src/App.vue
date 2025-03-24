@@ -15,6 +15,7 @@ const cityList = ([
   {name: 'Москва', latitude: 55.7522, longitude: 37.6156,}
 ])
 forecast.setCities(cityList);
+forecast.getApiWeather()
 
 
 

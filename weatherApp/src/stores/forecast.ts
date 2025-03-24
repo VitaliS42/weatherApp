@@ -1,38 +1,40 @@
 import { ref, computed } from 'vue'
 import { defineStore } from 'pinia'
 import {apiResponse} from "@/api/weatherApi.ts";
+import type {ICity, ICityForecast} from '@/types/Cities';
+import type {IAPICity} from "@/types/Forecasts.ts";
 
 export const useForecastStore = defineStore('forecast', () => {
 
-  // список городов. его я буду получать 1 раз при создании приложения. Там названия городов и их координаты(для API)
-  const cities = ref(null);
-
-  // голый ответ API - массив с объектами городами и всей доступной информацией о них
-  const apiWeather = ref(null);
-
-  // новый массив с прогнозами. результат слияния cities и apiWeather. содержит только необходимые данные о погоде и русские названия городов.
-  const allWeather = computed(()=> cities.value.map((item, index) => {
-    return {
-      name: item.name,
-      current: apiWeather[index].current,
-      hourly: apiWeather[index].hourly
-    };
-  }))
-
-  // выбранный город. внутри один конкретный объект из массива allWeather
-  const cityWeather = ref(null);
-
-  // получаем список городов и их координат. на случай если он изменился.
-  function setCities(cityList) {
+  const cities = ref<ICity[]>([]);
+  function setCities(cityList: ICity[]) {
     cities.value = cityList
   }
 
-  // получаем ответ API
+  /**
+   * @todo
+   * Define Type
+   */
+  const apiWeather = ref<IAPICity[]>([]);
   async function getApiWeather() {
-    apiWeather.value = apiResponse();
+    apiWeather.value = apiResponse(cities);
   }
-  // меняем значение cityWeather, когда выбран город
-  function setCityWeather(chosenCity) {
+
+
+  const allWeather = computed(() => {
+    if (cities.value.length === 0 || apiWeather.value.length === 0) return [];
+    return cities.value.map((item, index) => {
+      const weatherData = apiWeather.value[index];
+      return {
+        name: item.name,
+        current: weatherData ? weatherData.current : null,
+        hourly: weatherData ? weatherData.hourly : null
+      };
+    });
+  });
+
+  const cityWeather = ref<ICityForecast>();
+  function setCityWeather(chosenCity: ICityForecast) {
     cityWeather.value = chosenCity
   }
 

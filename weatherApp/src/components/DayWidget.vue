@@ -4,7 +4,7 @@ import DayWidgetCard from "@/components/DayWidgetCard.vue";
 </script>
 
 <template>
-  <Article class="dayWidget">
+  <article class="dayWidget">
     <section class="dayWidget__summary">
       <WeatherCloudySmall size="180px"/>
       <span>34°</span>
@@ -24,7 +24,7 @@ import DayWidgetCard from "@/components/DayWidgetCard.vue";
       <DayWidgetCard/>
       <DayWidgetCard/>
     </section>
-  </Article>
+  </article>
 </template>
 
 <style scoped>
